@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Post (or update) the unit-test coverage report as a comment on the PR.
 #
-# Runs straight from the test workflow: the unit tests leave a .coverage file in
-# the workspace, this renders it and upserts a single marked comment, so pushing
+# Runs straight from the test workflow: the Node tests leave a JavaScript test/coverage report in
+# artifacts/, this renders its tail and upserts a single marked comment, so pushing
 # new commits edits the same comment instead of stacking new ones.
 #
 # Inputs (environment variables):
@@ -13,7 +13,7 @@ set -euo pipefail
 
 : "${PR_NUMBER:?PR_NUMBER is required}"
 repo_root="${GITHUB_WORKSPACE:-$(git rev-parse --show-toplevel)}"
-marker="<!-- slopsoil-coverage-report -->"
+marker="<!-- 666-streaming-coverage-report -->"
 
 report="$("${repo_root}/ci/test/coverage-report.sh")"
 

@@ -1,30 +1,16 @@
-name: Unit tests
-description: >-
-  Set up Python and run the slopsoil unit test suite. Thin GitHub wrapper around
-  the provider-agnostic ci/test/run.sh so the same invocation works locally and
-  in CI.
-
-inputs:
-  python-version:
-    description: Python version to set up.
-    required: false
-    default: "3.12"
-  pytest-args:
-    description: Extra arguments forwarded to pytest.
-    required: false
-    default: ""
-
+name: JavaScript runtime tests
+description: Node.js 22, FFmpeg/FFprobe, standalone yt-dlp and real browser/media tests.
 runs:
   using: composite
   steps:
-    - name: Set up Python
-      uses: actions/setup-python@v6
+    - name: Set up Node
+      uses: actions/setup-node@v4
       with:
-        python-version: ${{ inputs.python-version }}
-        cache: pip
-
-    - name: Run unit tests
+        node-version: "22"
+        cache: npm
+    - name: Install FFmpeg and FFprobe
       shell: bash
-      env:
-        PYTEST_ARGS: ${{ inputs.pytest-args }}
+      run: sudo apt-get update && sudo apt-get install -y ffmpeg
+    - name: Run JavaScript, media and browser tests
+      shell: bash
       run: "${GITHUB_WORKSPACE}/ci/test/run.sh"

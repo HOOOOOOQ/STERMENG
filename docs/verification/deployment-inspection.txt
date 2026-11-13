@@ -1,0 +1,15 @@
+PASS YAML syntax/unique keys: docker-compose.yml
+PASS YAML syntax/unique keys: .github/actions/docker-meta/action.yml
+PASS YAML syntax/unique keys: .github/actions/unit-tests/action.yml
+PASS YAML syntax/unique keys: .github/workflows/docker-publish.yml
+PASS YAML syntax/unique keys: .github/workflows/tests.yml
+PASS Compose source contract: build, environment, allocated-port interpolation, persistent data, stop grace; NOT a Docker runtime test.
+PASS CI Node22 action/source contract; NOT a GitHub Actions execution.
+PASS egg JSON/direct-Node startup; NOT a Wings deployment test.
+PASS bash -n: deploy/pterodactyl/entrypoint.sh
+PASS bash -n: ci/test/coverage-report.sh
+PASS bash -n: ci/test/post-coverage-comment.sh
+PASS bash -n: ci/test/run.sh
+PASS bash -n: ci/docker/labels.sh
+PASS bash -n: ci/docker/tags.sh
+PASS bash -n: .github/actions/docker-meta/run.sh

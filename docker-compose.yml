@@ -1,14 +1,17 @@
 services:
-  slopsoil:
+  streaming666:
     build: .
+    image: 666-streaming:local
     restart: unless-stopped
     env_file: .env
-
-    # Persist IPTV source list across container restarts.
+    ports:
+      - "${PUBLISH_PORT:-8080}:${PORT:-${SERVER_PORT:-8080}}"
     volumes:
-      - slopsoil-data:/root/.local/share/slopsoil
-    devices:
-      - /dev/dri:/dev/dri
+      - streaming666-data:/home/container/data
+    stop_grace_period: 60s
+    security_opt:
+      - no-new-privileges:true
+    # No /dev/dri requirement. GPU devices/drivers are opt-in host configuration.
 
 volumes:
-  slopsoil-data:
+  streaming666-data:

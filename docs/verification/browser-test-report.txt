@@ -1,0 +1,9 @@
+
+> 666-streaming@2.0.0 test:browser
+> node tests/browser.mjs
+
+PASS: login, desktop/mobile layout, playlist creation/save, upload, real HLS video playback.
+PASS: authenticated shared room, real WebSocket pause/seek synchronization.
+PASS: stop cleanup, protected manifests, real 404 notification without server crash.
+PASS: Jellyfin series → season → episode UI uses correct API IDs and decodes actual video (controlled service).
+PASS: SIGTERM exits cleanly with active FFmpeg; no orphan child processes.

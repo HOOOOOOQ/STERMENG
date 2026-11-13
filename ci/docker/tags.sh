@@ -66,6 +66,7 @@ fi
 tags+=( "sha-${short_sha}" )
 
 for image in "${images[@]}"; do
+    image="${image,,}"  # Docker repository names must be lowercase.
     [[ -z "${image}" ]] && continue
     for tag in "${tags[@]}"; do
         printf '%s:%s\n' "${image}" "${tag}"

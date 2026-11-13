@@ -1,0 +1,142 @@
+{
+  "_comment": "666 Streaming Node.js 22 custom-image egg. Build the repository Dockerfile on the Wings node or publish your own image. Author is a panel-admin template field.",
+  "meta": {
+    "version": "PTDL_v2",
+    "update_url": null
+  },
+  "exported_at": "2026-11-13T00:00:00+00:00",
+  "name": "666 Streaming",
+  "author": "admin@example.com",
+  "description": "666 Streaming: JavaScript ES Modules, Node.js 22, FFmpeg/FFprobe and approved standalone yt-dlp. Optional official discord.js v14 bot/audio; video in web player, no selfbot.",
+  "features": null,
+  "docker_images": {
+    "666 Streaming (build on Wings node first)": "666-streaming:local"
+  },
+  "file_denylist": [],
+  "startup": "node src/index.js",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"666 Streaming siap\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/bin/bash\nset -euo pipefail\ncd /mnt/server\nif [[ -f package-lock.json && -f src/index.js ]]; then\n  npm ci --include=dev --no-fund --no-audit\n  npm run build\n  npm prune --omit=dev --no-fund --no-audit\nelse\n  echo \"666 Streaming: empty volume will be seeded from the custom Node22 image at first start.\"\nfi\necho \"Runtime must provide Node22, FFmpeg, FFprobe and standalone yt-dlp. No Python/pip installation required.\"\n",
+      "container": "node:22-bookworm-slim",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Workspace password",
+      "description": "Set a long private password. Empty generates DATA_DIR/initial-password; never use a Discord user token.",
+      "env_variable": "APP_PASSWORD",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:1024",
+      "field_type": "text"
+    },
+    {
+      "name": "Public root URL",
+      "description": "Public HTTP(S) root URL for watch links.",
+      "env_variable": "PUBLIC_URL",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|url|max:255",
+      "field_type": "text"
+    },
+    {
+      "name": "Secure cookies",
+      "description": "Use true behind HTTPS. Use false for direct HTTP testing.",
+      "env_variable": "COOKIE_SECURE",
+      "default_value": "false",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "Data directory",
+      "description": "Persistent private data directory.",
+      "env_variable": "DATA_DIR",
+      "default_value": "/home/container/data",
+      "user_viewable": true,
+      "user_editable": false,
+      "rules": "required|string|max:255",
+      "field_type": "text"
+    },
+    {
+      "name": "Encoder",
+      "description": "CPU default. GPU encoders require actual host device/driver support.",
+      "env_variable": "VIDEO_ENCODER",
+      "default_value": "libx264",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|in:libx264,libopenh264,h264_nvenc,h264_vaapi",
+      "field_type": "text"
+    },
+    {
+      "name": "Quality",
+      "description": "CPU-friendly output resolution ceiling.",
+      "env_variable": "STREAM_QUALITY",
+      "default_value": "720p",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|in:720p,1080p,4k",
+      "field_type": "text"
+    },
+    {
+      "name": "Concurrent streams",
+      "description": "Limit streams according to your CPU/RAM/disk.",
+      "env_variable": "MAX_STREAMS",
+      "default_value": "2",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer|min:1|max:20",
+      "field_type": "text"
+    },
+    {
+      "name": "Official Discord bot token (optional)",
+      "description": "OFFICIAL application bot token only. Never a user-account token.",
+      "env_variable": "DISCORD_BOT_TOKEN",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:1024",
+      "field_type": "text"
+    },
+    {
+      "name": "Discord admin IDs",
+      "description": "Comma-separated admin user IDs, not tokens.",
+      "env_variable": "ALLOWED_USER_IDS",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:1024",
+      "field_type": "text"
+    },
+    {
+      "name": "Discord operator IDs",
+      "description": "Comma-separated playback operator IDs.",
+      "env_variable": "OPERATOR_USER_IDS",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:1024",
+      "field_type": "text"
+    },
+    {
+      "name": "Development guild IDs (optional)",
+      "description": "Comma-separated guild IDs for immediate slash command registration. Empty uses global registration.",
+      "env_variable": "DISCORD_GUILD_IDS",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:1024",
+      "field_type": "text"
+    }
+  ]
+}

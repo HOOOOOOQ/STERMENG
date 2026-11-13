@@ -1,0 +1,228 @@
+Production-only install from clean extracted JavaScript archive, no .git.
+
+added 105 packages in 2s
+666-streaming@2.0.0 /home/user/.cache/666-streaming/js-panel-smoke.cZ1Acv
++-- @discordjs/voice@0.19.2
++-- @fontsource-variable/manrope@5.3.0
++-- @fontsource/barlow-condensed@5.3.0
++-- busboy@1.6.0
++-- discord.js@14.28.1
++-- dotenv@18.0.10
++-- express@5.3.0
++-- hls.js@1.7.4
++-- opusscript@0.1.1
++-- saxes@6.0.0
+`-- ws@8.23.0
+
+PASS: ESLint, esbuild, Playwright and Chromium absent; prebuilt assets retained.
+
+> 666-streaming@2.0.0 check:source
+> node scripts/check-source.mjs
+
+666 Streaming: 45 JavaScript files syntax checked; all backend modules/dependencies imported without starting servers or logging in.
+
+> 666-streaming@2.0.0 check
+> node src/index.js --check
+
+666 Streaming: video=libx264, AAC/HLS/FFprobe OK; Node 22.22.3; yt-dlp=2026.08.19.
+TAP version 13
+# Subtest: official discord.js v14 command payloads are valid and every original command family is mapped
+ok 1 - official discord.js v14 command payloads are valid and every original command family is mapped
+  ---
+  duration_ms: 10.457926
+  type: 'test'
+  ...
+# Subtest: snowflake allowlists are exact strings; invalid IDs fail closed
+ok 2 - snowflake allowlists are exact strings; invalid IDs fail closed
+  ---
+  duration_ms: 1.941924
+  type: 'test'
+  ...
+# Subtest: bot instantiates without network, uses minimal official intents, and destroys without login
+ok 3 - bot instantiates without network, uses minimal official intents, and destroys without login
+  ---
+  duration_ms: 52.261009
+  type: 'test'
+  ...
+# 2026-11-13T02:25:08.689Z WARN Discord play gagal: Akses ditolak. Administrator host harus menambahkan ID Anda ke allowlist yang sesuai.
+# Subtest: permission denial never invokes playback or leaks secrets
+ok 4 - permission denial never invokes playback or leaks secrets
+  ---
+  duration_ms: 7.065025
+  type: 'test'
+  ...
+# Subtest: component choice is cancellable immediately at shutdown instead of waiting for timeout
+ok 5 - component choice is cancellable immediately at shutdown instead of waiting for timeout
+  ---
+  duration_ms: 0.764437
+  type: 'test'
+  ...
+# Subtest: channel/EPG matching retains original number, substring, airing and 24h horizon behavior
+ok 6 - channel/EPG matching retains original number, substring, airing and 24h horizon behavior
+  ---
+  duration_ms: 0.479542
+  type: 'test'
+  ...
+# Subtest: voice resolution reads voiceStates, missing voice is clear, and stop/leave clean without private connections
+ok 7 - voice resolution reads voiceStates, missing voice is clear, and stop/leave clean without private connections
+  ---
+  duration_ms: 2.008409
+  type: 'test'
+  ...
+# Subtest: EPG timer checks current voice state; cancelled schedules do not fire
+ok 8 - EPG timer checks current voice state; cancelled schedules do not fire
+  ---
+  duration_ms: 25.772062
+  type: 'test'
+  ...
+# Subtest: real PCM frames encode AND decode through the installed Opus implementation; DAVE dependency loads
+ok 9 - real PCM frames encode AND decode through the installed Opus implementation; DAVE dependency loads
+  ---
+  duration_ms: 24.436685
+  type: 'test'
+  ...
+# Subtest: all slash follow-ups stay ephemeral, not just the initial deferred reply
+ok 10 - all slash follow-ups stay ephemeral, not just the initial deferred reply
+  ---
+  duration_ms: 0.419346
+  type: 'test'
+  ...
+# Subtest: voice /stop preempts pending resolution instead of waiting for the guild lock (unit lifecycle)
+ok 11 - voice /stop preempts pending resolution instead of waiting for the guild lock (unit lifecycle)
+  ---
+  duration_ms: 53.170219
+  type: 'test'
+  ...
+# Subtest: voice /leave cancels a not-yet-created connection/session (unit lifecycle)
+ok 12 - voice /leave cancels a not-yet-created connection/session (unit lifecycle)
+  ---
+  duration_ms: 52.12179
+  type: 'test'
+  ...
+# Subtest: binary path overrides resolve against app root, bare executable names remain PATH lookups
+ok 13 - binary path overrides resolve against app root, bare executable names remain PATH lookups
+  ---
+  duration_ms: 18.34714
+  type: 'test'
+  ...
+# Subtest: Node preflight succeeds with a PATH containing NO python/pip (approved standalone utility only)
+ok 14 - Node preflight succeeds with a PATH containing NO python/pip (approved standalone utility only)
+  ---
+  duration_ms: 1421.573665
+  type: 'test'
+  ...
+# Subtest: Pterodactyl-like direct Node startup uses SERVER_PORT, accepts proxy Host, and SIGINT exits cleanly
+ok 15 - Pterodactyl-like direct Node startup uses SERVER_PORT, accepts proxy Host, and SIGINT exits cleanly
+  ---
+  duration_ms: 1495.233602
+  type: 'test'
+  ...
+# Subtest: SIGTERM during real yt-dlp metadata request reaps extractor; no Python application child exists
+ok 16 - SIGTERM during real yt-dlp metadata request reaps extractor; no Python application child exists
+  ---
+  duration_ms: 1613.728339
+  type: 'test'
+  ...
+# Subtest: TERM→KILL covers a stubborn grandchild even when its group leader exits first
+ok 17 - TERM→KILL covers a stubborn grandchild even when its group leader exits first
+  ---
+  duration_ms: 139.12939
+  type: 'test'
+  ...
+# Subtest: cache cap stops active real encoding; prune/close never deletes source media
+ok 18 - cache cap stops active real encoding; prune/close never deletes source media
+  ---
+  duration_ms: 2755.284009
+  type: 'test'
+  ...
+# Subtest: startup cleanup only removes generated hex cache directories, not other data
+ok 19 - startup cleanup only removes generated hex cache directories, not other data
+  ---
+  duration_ms: 6.491633
+  type: 'test'
+  ...
+# Subtest: check mode fails honestly when extractor is absent rather than reporting all providers ready
+ok 20 - check mode fails honestly when extractor is absent rather than reporting all providers ready
+  ---
+  duration_ms: 374.180374
+  type: 'test'
+  ...
+# Subtest: check mode rejects missing ffmpeg before opening any port
+ok 21 - check mode rejects missing ffmpeg before opening any port
+  ---
+  duration_ms: 255.493623
+  type: 'test'
+  ...
+# Subtest: real Node HTTP API / authenticated media / WS / upload contracts
+    # Subtest: health, public info and authenticated runtime identify Node, not Python
+    ok 1 - health, public info and authenticated runtime identify Node, not Python
+      ---
+      duration_ms: 15.310981
+      type: 'test'
+      ...
+    # Subtest: API requires auth, rejects cross-origin writes/invalid JSON and does not leak credentials
+    ok 2 - API requires auth, rejects cross-origin writes/invalid JSON and does not leak credentials
+      ---
+      duration_ms: 24.622748
+      type: 'test'
+      ...
+    # Subtest: playlist CRUD validates descriptors, persists and refuses missing playlists
+    ok 3 - playlist CRUD validates descriptors, persists and refuses missing playlists
+      ---
+      duration_ms: 20.052529
+      type: 'test'
+      ...
+    # Subtest: actual multipart upload is private, appears in library, and concurrent names never clobber
+    ok 4 - actual multipart upload is private, appears in library, and concurrent names never clobber
+      ---
+      duration_ms: 43.427312
+      type: 'test'
+      ...
+    # Subtest: unsupported, empty, multiple and oversized uploads fail and remove temporary files
+    ok 5 - unsupported, empty, multiple and oversized uploads fail and remove temporary files
+      ---
+      duration_ms: 33.551616
+      type: 'test'
+      ...
+    # Subtest: sources use real M3U HTTP parsing, toggle/delete persist and public results hide upstream URLs
+    ok 6 - sources use real M3U HTTP parsing, toggle/delete persist and public results hide upstream URLs
+      ---
+      duration_ms: 45.116297
+      type: 'test'
+      ...
+    # Subtest: real session produces protected manifest/segments; invalid paths cannot read filesystem
+    ok 7 - real session produces protected manifest/segments; invalid paths cannot read filesystem
+      ---
+      duration_ms: 1836.0427
+      type: 'test'
+      ...
+    # Subtest: authenticated WS broadcasts validated pause/seek, closes on session stop; anonymous/origin rejected
+    ok 8 - authenticated WS broadcasts validated pause/seek, closes on session stop; anonymous/origin rejected
+      ---
+      duration_ms: 239.911005
+      type: 'test'
+      ...
+    # Subtest: schedules/API provider absence, logout and static branding are explicit
+    ok 9 - schedules/API provider absence, logout and static branding are explicit
+      ---
+      duration_ms: 18.545097
+      type: 'test'
+      ...
+    1..9
+ok 22 - real Node HTTP API / authenticated media / WS / upload contracts
+  ---
+  duration_ms: 4160.920794
+  type: 'test'
+  ...
+1..22
+# tests 31
+# suites 0
+# pass 31
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 13318.720326
+found 0 vulnerabilities
+
+PASS: production dependencies only, direct Node startup/port/Host/hidden paths/HLS/auth/Discord codecs/signals/no-Python PATH, no orphan managed media.
