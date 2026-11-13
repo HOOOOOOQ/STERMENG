@@ -9,7 +9,12 @@ npm run lint
 npm run build
 mkdir -p artifacts
 # No Python test/runtime/coverage process. Propagate the Node test exit status.
-node --test --experimental-test-coverage --test-coverage-include='src/**' --test-concurrency=1 tests/*.test.js > artifacts/test-report.txt 2>&1 || { cat artifacts/test-report.txt; exit 1; }
+node --test --experimental-test-coverage --test-coverage-include='src/**' --test-concurrency=1 tests/*.test.js > artifacts/test-report.txt 2>&1 || {
+  cat artifacts/test-report.txt
+  printf '\n=== Failed Node subtests ===\n'
+  grep -n -B 8 -A 40 '^[[:space:]]*not ok' artifacts/test-report.txt || true
+  exit 1
+}
 cat artifacts/test-report.txt
 npm run test:browser > artifacts/browser-test-report.txt 2>&1 || { cat artifacts/browser-test-report.txt; exit 1; }
 cat artifacts/browser-test-report.txt

@@ -10,7 +10,26 @@ runs:
         cache: npm
     - name: Install FFmpeg and FFprobe
       shell: bash
-      run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      run: |
+        set -euo pipefail
+        { sudo apt-get update && sudo apt-get install -y ffmpeg; } 2>&1 | tee "${RUNNER_TEMP}/666-dependencies.log"
     - name: Run JavaScript, media and browser tests
       shell: bash
-      run: "${GITHUB_WORKSPACE}/ci/test/run.sh"
+      run: |
+        set -euo pipefail
+        "${GITHUB_WORKSPACE}/ci/test/run.sh" 2>&1 | tee "${RUNNER_TEMP}/666-tests.log"
+    - name: Surface failure diagnostics in check annotations
+      if: ${{ failure() }}
+      shell: bash
+      run: |
+        # Keep failure details readable through the Checks API as well as the
+        # downloadable log archive. Do not print environment variables/secrets.
+        for log in "${RUNNER_TEMP}/666-tests.log" "${RUNNER_TEMP}/666-dependencies.log"; do
+          [[ -f "${log}" ]] || continue
+          report="$(tail -n 80 "${log}")"
+          report="${report//'%'/'%25'}"
+          report="${report//$'\r'/'%0D'}"
+          report="${report//$'\n'/'%0A'}"
+          printf '::error title=%s::%s\n' "$(basename "${log}")" "${report}"
+          break
+        done
