@@ -23,6 +23,8 @@ test('source has a real Node ESM entrypoint, locked dependencies and no active P
   const pkg = JSON.parse(await readFile(path.join(ROOT, 'package.json'), 'utf8')), lock = JSON.parse(await readFile(path.join(ROOT, 'package-lock.json'), 'utf8'));
   assert.equal(pkg.type, 'module'); assert.equal(pkg.scripts.start, 'node src/index.js'); assert.equal(pkg.dependencies['discord.js'].split('.')[0], '14'); assert.match(pkg.engines.node, /22/); assert.equal(lock.packages[''].version, pkg.version);
   assert.doesNotMatch(JSON.stringify(pkg), /python|pip |discord\.py|ytdlp-nodejs|yt-dlp-wrap/i);
+  const ignore = await readFile(path.join(ROOT, '.gitignore'), 'utf8');
+  assert.match(ignore, /^\/public\/$/m); assert.doesNotMatch(ignore, /^public\/$/m, 'Do not ignore required frontend/public source assets in clean Git installs.');
   for (const directory of ['src', 'scripts', 'tests', 'frontend']) for (const file of await sourceFiles(path.join(ROOT, directory))) assert.notEqual(path.extname(file), '.py', file);
   for (const file of ['app.py', 'bot.py', 'requirements.txt', 'requirements.lock', 'pyproject.toml', 'scripts/start.mjs', 'scripts/migrate_data.py']) await assert.rejects(() => stat(path.join(ROOT, file)), { code: 'ENOENT' });
 });
