@@ -1,0 +1,69 @@
+
+added 201 packages in 3s
+
+> 666-streaming@2.0.0 check:source
+> node scripts/check-source.mjs
+
+666 Streaming: 45 JavaScript files syntax checked; all backend modules/dependencies imported without starting servers or logging in.
+
+> 666-streaming@2.0.0 lint
+> eslint src scripts tests frontend/app.js eslint.config.mjs
+
+
+> 666-streaming@2.0.0 build
+> node scripts/build.mjs
+
+666 Streaming: production assets built (no CDN required).
+TAP version 13
+# Subtest: source has a real Node ESM entrypoint, locked dependencies and no active Python code/wrapper
+ok 1 - source has a real Node ESM entrypoint, locked dependencies and no active Python code/wrapper
+  ---
+  duration_ms: 14.702118
+  type: 'test'
+  ...
+# Subtest: original license hash and author attribution survive total rebranding
+ok 2 - original license hash and author attribution survive total rebranding
+  ---
+  duration_ms: 4.500292
+  type: 'test'
+  ...
+# Subtest: Pterodactyl egg is Node22/direct Node, entrypoint and CI shell scripts parse
+ok 3 - Pterodactyl egg is Node22/direct Node, entrypoint and CI shell scripts parse
+  ---
+  duration_ms: 18.754402
+  type: 'test'
+  ...
+# Subtest: Pterodactyl panel preset keeps allocated port and hosting secrets, uses CPU/one stream
+ok 4 - Pterodactyl panel preset keeps allocated port and hosting secrets, uses CPU/one stream
+  ---
+  duration_ms: 17.688882
+  type: 'test'
+  ...
+# Subtest: dependency package metadata and required license files really exist
+ok 5 - dependency package metadata and required license files really exist
+  ---
+  duration_ms: 5.03541
+  type: 'test'
+  ...
+# Subtest: source ZIP is reproducible, excludes stale Python/private files, rejects symlinks and missing assets
+ok 6 - source ZIP is reproducible, excludes stale Python/private files, rejects symlinks and missing assets
+  ---
+  duration_ms: 51.069245
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 185.146876
+
+> 666-streaming@2.0.0 check
+> node src/index.js --check
+
+666 Streaming: video=libx264, AAC/HLS/FFprobe OK; Node 22.22.3; yt-dlp=2026.08.19.
+
+PASS: committed Git export without .git includes frontend/public assets and installs/imports/lints/builds/tests distribution/preflights real media.
