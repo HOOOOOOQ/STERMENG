@@ -105,7 +105,7 @@ npm audit --omit=dev
 
 Tes media memerlukan FFmpeg/FFprobe dan standalone yt-dlp yang benar; jika tidak tersedia tes gagal, bukan diganti hasil palsu. `FFMPEG_PATH`, `FFPROBE_PATH`, `YTDLP_PATH` dapat menunjuk binary test di lokasi lain. Chromium hanya dev dependency. [Laporan dan batas verifikasi →](docs/TESTING.md)
 
-Hasil verifikasi terakhir: **158/158 tes Node**, **5 kelompok browser E2E**, serta **31/31 tes smoke setelah instalasi production-only**, semuanya dari ekstraksi source tanpa `.git`. Syntax/import 45 file, lint/build dan audit dependency produksi juga lulus (0 vulnerability terlapor saat diperiksa). Media benar-benar di-encode/decode; provider terkontrol tidak disebut sebagai provider eksternal yang sudah berhasil.
+Hasil verifikasi terakhir: **158/158 tes Node**, **5 kelompok browser E2E**, serta **31/31 tes smoke setelah instalasi production-only**, semuanya dari ekstraksi source tanpa `.git`. Syntax/import 45 file, lint/build dan audit dependency produksi juga lulus (0 vulnerability terlapor saat diperiksa). Media benar-benar di-encode/decode; provider terkontrol tidak disebut sebagai provider eksternal yang sudah berhasil. Build dari export commit Git bersih juga diuji, termasuk logo/favicon source yang harus ikut Git. Status CI commit terbaru ada pada Checks PR.
 
 ## Membuat distribusi source
 

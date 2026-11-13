@@ -9,7 +9,7 @@ Tanggal: **13 November 2026 (UTC)**. Semua hasil di halaman ini untuk backend **
 - Express 5.3.0, ws 8.23.0, busboy 1.6.0, saxes 6.0.0, dotenv 18.0.10, hls.js 1.7.4; versi langsung/transitif lengkap di package-lock.json.
 - FFmpeg **n9.0.2-17-g2a571b6068-20260930** dan FFprobe **n8.0.1-40-gabb609bb58-20260107** khusus test. Tidak ada FFmpeg/FFprobe sistem di PATH awal. Dipanggil langsung sebagai executable oleh Node, **bukan** melalui interpreter/paket Python pada aplikasi.
 - yt-dlp standalone resmi **2026.08.19**, byte-for-byte SHA256 **`58162f9bfdc27458ea47bfcb311cf47028f17d8154a8bf7d689861d46399230a`** cocok dengan digest rilis GitHub. Binary diperoleh dari tarball registry `@involvex/yt-dlp-binary-linux-x64@2026.8.22` sebagai alat test cache saja; **bukan dependency produksi**. Binary ini membawa CPython internal sesuai persetujuan pengguna.
-- Installer produksi pin yt-dlp **2026.10.26**. Metadata/digest asset resmi dapat dibaca, tetapi download release-assets diblokir sandbox. `npm run install:ytdlp` dicoba dan **gagal karena jaringan**; tidak dicatat lulus dan tidak diganti zipapp/pip. Versi pin terbaru itu **belum dijalankan** di sini.
+- Installer produksi pin yt-dlp **2026.10.26**. Download release-assets di sandbox lokal tetap diblokir: percobaan lokal gagal karena jaringan, bukan dicatat lulus atau diganti zipapp/pip. Pada runner GitHub Actions, installer sudah **berhasil mengunduh dan memverifikasi** binary Linux versi pin dengan SHA256 `767ba9dce7052aa196f8b12652f433d76de128ba168966fa84b6394d5e6c6795` (Node22.23.4). Suite CI dengan binary pin2026.10.26 sudah lulus pada run43353189763 (commit6354f1b), termasuk generic extraction/media dan browser. Hasil suite lokal di halaman ini tetap memakai binary test2026.08.19; keberhasilan CI bukan bukti deployment Wings atau provider eksternal.
 - Chromium 153 melalui Playwright-core 1.65.0/@sparticuz/chromium 153.0.0 untuk browser E2E. NSS/NSPR tambahan dari paket Chromium dipakai pada runner minimal. Tidak mematikan web security atau menambahkan flag single-process yang tidak stabil.
 
 Binary test tidak dibundel di source/ZIP/Git. Hosting wajib menyediakan binary OS/arsitektur yang sesuai dan lulus preflight sendiri. FFmpeg 6-static tertentu yang diuji pada pekerjaan lama pernah crash membaca HLS; ini bukan klaim seluruh FFmpeg 6 rusak. Versi JS tetap menguji HLS **reader** sungguhan, bukan hanya encoder/version.
@@ -18,12 +18,12 @@ Binary test tidak dibundel di source/ZIP/Git. Hosting wajib menyediakan binary O
 
 | Pemeriksaan | Hasil |
 |---|---|
-| `npm ci --include=dev`, npm dependency tree | Lulus dari ZIP bersih tanpa `.git`; package-lock produksi/dev valid |
+| `npm ci --include=dev`, npm dependency tree | Lulus dari ZIP dan export Git bersih tanpa `.git`; package-lock produksi/dev valid |
 | Syntax check 45 file JS/MJS + import seluruh backend/dependency | Lulus; import tidak membuka port/login bot |
 | ESLint seluruh src/scripts/tests/frontend | Lulus |
 | Build aset lokal esbuild, font dan lisensi | Lulus |
 | Node test runner (`node --test`, concurrency1) | **158 lulus, 0 gagal, 0 skip, 0 cancelled** |
-| Run dengan V8 coverage (src saja) | **158 lulus dalam 60.35s**; line 86.52%, branch 82.01%, function 84.40% |
+| Run dengan V8 coverage (src saja) | **158 lulus dalam 56.16s**; line 86.52%, branch 82.01%, function 84.40% |
 | Browser E2E nyata | Lulus; 5 kelompok pemeriksaan di bawah |
 | `npm run check` dengan binary sehat | Lulus; video libx264, AAC, HLS dibuat dan dibaca FFmpeg+FFprobe, standalone yt-dlp |
 | `npm run check` extractor/binary hilang | Gagal dengan pesan aman/exit 1 **sesuai harapan** |
@@ -35,6 +35,8 @@ Binary test tidak dibundel di source/ZIP/Git. Hosting wajib menyediakan binary O
 | Shell syntax/egg JSON/startup/branding/license audit | Lulus; 7 shell scripts, 5 YAML configs + egg JSON parse; LICENSE SHA identik asli |
 | Ekstrak ZIP tanpa `.git` → npm ci/build/tes/browser | Lulus, termasuk lokasi dengan parent tersembunyi `.cache` |
 | `npm ci --omit=dev` → preflight + codec/API/lifecycle | Lulus; **31/31 tes**, tanpa esbuild/ESLint/Playwright/Chromium |
+| GitHub Actions pada commit `6354f1b` | **Lulus** [run43353189763](https://github.com/HOOOOOOQ/STERMENG/actions/runs/43353189763); npm/install pinned standalone/build/media/browser/audit + coverage comment, bukan deploy hosting |
+| Export commit Git → install/build/distribution/preflight | Lulus; `frontend/public` source assets ikut Git, bukan hanya tersedia di ZIP lokal |
 | Preset `.env` panel generik | Lulus; allocation Wings tidak ditimpa, env secret/image tetap menang, CPU/1 stream |
 | ZIP integrity/exclusions/checksum/reproducibility | Lulus; built assets/source/lock/docs/attribution, tanpa secret/data/binary/cache Python |
 | Docker build/Compose runtime/Wings deployment | **Belum diuji**; Docker daemon/Wings tidak tersedia |
@@ -45,9 +47,11 @@ Coverage bukan bukti integrasi eksternal. Bagian slash handlers/component UI/voi
 
 Source ZIP dibangun oleh `npm run archive`, diuji CRC dengan `unzip -t`, diperiksa daftar file dan SHA-256, lalu diekstrak ke direktori baru **tanpa Git maupun node_modules**. Dari hasil ekstraksi tersebut dijalankan `npm ci --include=dev`, source/import/lint/build, seluruh **158 tes** dengan coverage, dan browser E2E. Setelah itu dependency diganti lewat `npm ci --omit=dev`: preflight dan **31 tes** Discord codec/lifecycle/API/media kembali lulus. Tes Discord ini tetap tidak melakukan login jaringan.
 
+Regresi lengkap terbaru juga dijalankan dari **`git archive HEAD`** yang diekstrak tanpa `.git`: 158/158 lulus, source/import/lint/build dan real media preflight berhasil. [Log export Git](verification/git-export-smoke.txt). CI awal menemukan pola ignore `public/` ikut menyembunyikan `frontend/public`; pola diperbaiki menjadi `/public/` agar hanya output root yang diabaikan. Logo/favicon kini di-track dan tes memeriksa kontrak ini. Dengan demikian smoke ZIP tidak menjadi satu-satunya bukti source Git dapat dibuild.
+
 Smoke test semula menemukan Express menolak index pada direktori parent tersembunyi. Penyajian index/HLS kini memakai root eksplisit yang dibatasi; tes API menjalankan aset **dan cache media** di direktori tersembunyi dan memastikan permintaan dotfile tetap ditolak. Regresi arsip juga memverifikasi cache `__pycache__`/`.pyc`, file Python, `.env`, runtime data dan dependency tidak ikut, symlink ditolak, built assets wajib, dan input identik menghasilkan ZIP identik pada toolchain yang sama.
 
-Salinan output (hanya spasi akhir baris dirapikan) disertakan di [verification/node-test-report.txt](verification/node-test-report.txt), [browser-test-report.txt](verification/browser-test-report.txt), [production-install-smoke.txt](verification/production-install-smoke.txt), dan [deployment-inspection.txt](verification/deployment-inspection.txt). Ini log test lokal, **bukan hasil GitHub Actions, Docker atau Wings**.
+Salinan output (hanya spasi akhir baris dirapikan) disertakan di [verification/node-test-report.txt](verification/node-test-report.txt), [browser-test-report.txt](verification/browser-test-report.txt), [production-install-smoke.txt](verification/production-install-smoke.txt), dan [deployment-inspection.txt](verification/deployment-inspection.txt). Ini log test lokal, **bukan hasil Docker atau Wings**. Metadata CI yang sudah lulus ada di [github-actions.json](verification/github-actions.json). Status commit terbaru dilaporkan terpisah melalui [PR #1](https://github.com/HOOOOOOQ/STERMENG/pull/1/checks).
 
 ## Bukti media dan browser nyata
 
@@ -119,4 +123,4 @@ npm audit --omit=dev
 
 Gunakan env `FFMPEG_PATH`, `FFPROBE_PATH`, `YTDLP_PATH` untuk binary yang benar pada mesin Anda. `npm test` sengaja gagal jika utilitas media wajib tidak tersedia; tidak ada skip diam-diam yang dianggap sukses. Runtime standalone yang disetujui tidak memerlukan Python/pip dalam PATH.
 
-CI [ci/test/run.sh](../ci/test/run.sh) menyiapkan npm/build, menginstal standalone lalu menjalankan Node coverage+browser. Konfigurasi CI disiapkan tetapi belum dijalankan sebagai GitHub Actions eksternal pada sesi ini. Log mentah lokal ada di `artifacts/`; salinan hasil terakhir disertakan pada `docs/verification/`, bukan dependency atau data produksi. Arsip Python lama dan log intermediate dipisahkan ke `artifacts/historical-python/` yang tidak ikut distribusi JavaScript.
+CI [ci/test/run.sh](../ci/test/run.sh) menyiapkan npm/build, menginstal standalone lalu menjalankan Node coverage+browser. CI eksternal sudah dipicu pada [PR #1](https://github.com/HOOOOOOQ/STERMENG/pull/1/checks); lihat Checks untuk status commit terbaru. Kegagalan build clone awal (source assets ter-ignore) diperbaiki dan workflow melampirkan tail diagnostik pada Check annotations agar kegagalan tidak tersembunyi ketika download log archive diblokir jaringan. Log mentah lokal ada di `artifacts/`; salinan hasil terakhir disertakan pada `docs/verification/`, bukan dependency atau data produksi. Arsip Python lama dan log intermediate dipisahkan ke `artifacts/historical-python/` yang tidak ikut distribusi JavaScript.

@@ -1,0 +1,80 @@
+{
+  "scope": "GitHub Actions CI, not Docker/Wings or authenticated provider/Discord deployment",
+  "run": {
+    "conclusion": "success",
+    "head_branch": "arena/71b54402-stermeng",
+    "head_sha": "6354f1bc2761f707645961533402530aee5cbadf",
+    "html_url": "https://github.com/HOOOOOOQ/STERMENG/actions/runs/43353189763",
+    "id": 43353189763,
+    "run_started_at": "2026-11-13T02:35:06Z",
+    "status": "completed",
+    "updated_at": "2026-11-13T02:37:09Z"
+  },
+  "job": {
+    "completed_at": "2026-11-13T02:37:08Z",
+    "conclusion": "success",
+    "html_url": "https://github.com/HOOOOOOQ/STERMENG/actions/runs/43353189763/job/131648895912",
+    "id": 131648895912,
+    "name": "test",
+    "started_at": "2026-11-13T02:35:09Z",
+    "status": "completed",
+    "steps": [
+      {
+        "completed_at": "2026-11-13T02:35:10Z",
+        "conclusion": "success",
+        "name": "Set up job",
+        "number": 1,
+        "started_at": "2026-11-13T02:35:10Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-11-13T02:35:11Z",
+        "conclusion": "success",
+        "name": "Check out repository",
+        "number": 2,
+        "started_at": "2026-11-13T02:35:10Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-11-13T02:37:01Z",
+        "conclusion": "success",
+        "name": "Run unit tests",
+        "number": 3,
+        "started_at": "2026-11-13T02:35:11Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-11-13T02:37:02Z",
+        "conclusion": "success",
+        "name": "Post coverage comment",
+        "number": 4,
+        "started_at": "2026-11-13T02:37:01Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-11-13T02:37:05Z",
+        "conclusion": "success",
+        "name": "Post Run unit tests",
+        "number": 7,
+        "started_at": "2026-11-13T02:37:02Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-11-13T02:37:06Z",
+        "conclusion": "success",
+        "name": "Post Check out repository",
+        "number": 8,
+        "started_at": "2026-11-13T02:37:05Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-11-13T02:37:06Z",
+        "conclusion": "success",
+        "name": "Complete job",
+        "number": 9,
+        "started_at": "2026-11-13T02:37:06Z",
+        "status": "completed"
+      }
+    ]
+  }
+}

@@ -2,955 +2,955 @@ TAP version 13
 # Subtest: Node settings use the assigned Pterodactyl port and portable paths
 ok 1 - Node settings use the assigned Pterodactyl port and portable paths
   ---
-  duration_ms: 18.5163
+  duration_ms: 17.616003
   type: 'test'
   ...
 # Subtest: configuration rejects PORT=0
 ok 2 - configuration rejects PORT=0
   ---
-  duration_ms: 0.537708
+  duration_ms: 0.567587
   type: 'test'
   ...
 # Subtest: configuration rejects PORT=65536
 ok 3 - configuration rejects PORT=65536
   ---
-  duration_ms: 0.26579
+  duration_ms: 0.31643
   type: 'test'
   ...
 # Subtest: configuration rejects PORT=3.14
 ok 4 - configuration rejects PORT=3.14
   ---
-  duration_ms: 0.373271
+  duration_ms: 0.288335
   type: 'test'
   ...
 # Subtest: configuration rejects PORT=1x
 ok 5 - configuration rejects PORT=1x
   ---
-  duration_ms: 0.251057
+  duration_ms: 0.248946
   type: 'test'
   ...
 # Subtest: configuration rejects PORT=-1
 ok 6 - configuration rejects PORT=-1
   ---
-  duration_ms: 0.22641
+  duration_ms: 0.218607
   type: 'test'
   ...
 # Subtest: configuration rejects PORT=Infinity
 ok 7 - configuration rejects PORT=Infinity
   ---
-  duration_ms: 0.236228
+  duration_ms: 0.213508
   type: 'test'
   ...
 # Subtest: configuration rejects SERVER_PORT=wrong
 ok 8 - configuration rejects SERVER_PORT=wrong
   ---
-  duration_ms: 0.236421
+  duration_ms: 0.27725
   type: 'test'
   ...
 # Subtest: configuration rejects COOKIE_SECURE=1
 ok 9 - configuration rejects COOKIE_SECURE=1
   ---
-  duration_ms: 0.119131
+  duration_ms: 0.122398
   type: 'test'
   ...
 # Subtest: configuration rejects COOKIE_SECURE=yes
 ok 10 - configuration rejects COOKIE_SECURE=yes
   ---
-  duration_ms: 0.17838
+  duration_ms: 0.178516
   type: 'test'
   ...
 # Subtest: configuration rejects VIDEO_ENCODER=copy
 ok 11 - configuration rejects VIDEO_ENCODER=copy
   ---
-  duration_ms: 0.134552
+  duration_ms: 0.090201
   type: 'test'
   ...
 # Subtest: configuration rejects VIDEO_ENCODER=unknown
 ok 12 - configuration rejects VIDEO_ENCODER=unknown
   ---
-  duration_ms: 0.08927
+  duration_ms: 0.081317
   type: 'test'
   ...
 # Subtest: configuration rejects STREAM_QUALITY=360p
 ok 13 - configuration rejects STREAM_QUALITY=360p
   ---
-  duration_ms: 0.08367
+  duration_ms: 0.078999
   type: 'test'
   ...
 # Subtest: configuration rejects STREAM_RESOLUTION=63:180
 ok 14 - configuration rejects STREAM_RESOLUTION=63:180
   ---
-  duration_ms: 0.08814
+  duration_ms: 0.117598
   type: 'test'
   ...
 # Subtest: configuration rejects STREAM_RESOLUTION=321:180
 ok 15 - configuration rejects STREAM_RESOLUTION=321:180
   ---
-  duration_ms: 0.082367
+  duration_ms: 0.082929
   type: 'test'
   ...
 # Subtest: configuration rejects STREAM_RESOLUTION=320:181
 ok 16 - configuration rejects STREAM_RESOLUTION=320:181
   ---
-  duration_ms: 0.076809
+  duration_ms: 0.085727
   type: 'test'
   ...
 # Subtest: configuration rejects STREAM_RESOLUTION=4096:2160
 ok 17 - configuration rejects STREAM_RESOLUTION=4096:2160
   ---
-  duration_ms: 0.094298
+  duration_ms: 0.14393
   type: 'test'
   ...
 # Subtest: configuration rejects STREAM_RESOLUTION=1280:2162
 ok 18 - configuration rejects STREAM_RESOLUTION=1280:2162
   ---
-  duration_ms: 0.078209
+  duration_ms: 0.081414
   type: 'test'
   ...
 # Subtest: configuration rejects STREAM_RESOLUTION=a:b
 ok 19 - configuration rejects STREAM_RESOLUTION=a:b
   ---
-  duration_ms: 0.077744
+  duration_ms: 0.079262
   type: 'test'
   ...
 # Subtest: configuration rejects STREAM_RESOLUTION=320:180:90
 ok 20 - configuration rejects STREAM_RESOLUTION=320:180:90
   ---
-  duration_ms: 0.0922
+  duration_ms: 0.077832
   type: 'test'
   ...
 # Subtest: configuration rejects STREAM_FPS=0
 ok 21 - configuration rejects STREAM_FPS=0
   ---
-  duration_ms: 0.086137
+  duration_ms: 0.081254
   type: 'test'
   ...
 # Subtest: configuration rejects STREAM_FPS=61
 ok 22 - configuration rejects STREAM_FPS=61
   ---
-  duration_ms: 0.080109
+  duration_ms: 0.101984
   type: 'test'
   ...
 # Subtest: configuration rejects STREAM_FPS=NaN
 ok 23 - configuration rejects STREAM_FPS=NaN
   ---
-  duration_ms: 0.082056
+  duration_ms: 0.089265
   type: 'test'
   ...
 # Subtest: configuration rejects STREAM_FPS=Infinity
 ok 24 - configuration rejects STREAM_FPS=Infinity
   ---
-  duration_ms: 0.073707
+  duration_ms: 0.079175
   type: 'test'
   ...
 # Subtest: configuration rejects STREAM_VIDEO_BITRATE=4;bad
 ok 25 - configuration rejects STREAM_VIDEO_BITRATE=4;bad
   ---
-  duration_ms: 0.081094
+  duration_ms: 0.086752
   type: 'test'
   ...
 # Subtest: configuration rejects STREAM_VIDEO_BITRATE=-1
 ok 26 - configuration rejects STREAM_VIDEO_BITRATE=-1
   ---
-  duration_ms: 0.075315
+  duration_ms: 0.07581
   type: 'test'
   ...
 # Subtest: configuration rejects STREAM_VIDEO_BITRATE=1k
 ok 27 - configuration rejects STREAM_VIDEO_BITRATE=1k
   ---
-  duration_ms: 0.075406
+  duration_ms: 0.074635
   type: 'test'
   ...
 # Subtest: configuration rejects STREAM_VIDEO_BITRATE=999999999
 ok 28 - configuration rejects STREAM_VIDEO_BITRATE=999999999
   ---
-  duration_ms: 0.148014
+  duration_ms: 0.076741
   type: 'test'
   ...
 # Subtest: configuration rejects FFMPEG_THREADS=0
 ok 29 - configuration rejects FFMPEG_THREADS=0
   ---
-  duration_ms: 0.329318
+  duration_ms: 0.25531
   type: 'test'
   ...
 # Subtest: configuration rejects FFMPEG_THREADS=33
 ok 30 - configuration rejects FFMPEG_THREADS=33
   ---
-  duration_ms: 0.235295
+  duration_ms: 0.265615
   type: 'test'
   ...
 # Subtest: configuration rejects STREAM_AV_SYNC_MS=5001
 ok 31 - configuration rejects STREAM_AV_SYNC_MS=5001
   ---
-  duration_ms: 1.648136
+  duration_ms: 0.228949
   type: 'test'
   ...
 # Subtest: configuration rejects STREAM_AV_SYNC_MS=-5001
 ok 32 - configuration rejects STREAM_AV_SYNC_MS=-5001
   ---
-  duration_ms: 0.24883
+  duration_ms: 1.605572
   type: 'test'
   ...
 # Subtest: configuration rejects MAX_STREAMS=0
 ok 33 - configuration rejects MAX_STREAMS=0
   ---
-  duration_ms: 0.229086
+  duration_ms: 0.324604
   type: 'test'
   ...
 # Subtest: configuration rejects MAX_STREAMS=21
 ok 34 - configuration rejects MAX_STREAMS=21
   ---
-  duration_ms: 0.264933
+  duration_ms: 0.22298
   type: 'test'
   ...
 # Subtest: configuration rejects STREAM_IDLE_SECONDS=29
 ok 35 - configuration rejects STREAM_IDLE_SECONDS=29
   ---
-  duration_ms: 0.219408
+  duration_ms: 0.270766
   type: 'test'
   ...
 # Subtest: configuration rejects MAX_CACHE_MB=31
 ok 36 - configuration rejects MAX_CACHE_MB=31
   ---
-  duration_ms: 0.216458
+  duration_ms: 0.238743
   type: 'test'
   ...
 # Subtest: configuration rejects MAX_UPLOAD_MB=0
 ok 37 - configuration rejects MAX_UPLOAD_MB=0
   ---
-  duration_ms: 0.208704
+  duration_ms: 0.211788
   type: 'test'
   ...
 # Subtest: configuration rejects MAX_DOWNLOAD_MB=0
 ok 38 - configuration rejects MAX_DOWNLOAD_MB=0
   ---
-  duration_ms: 0.278043
+  duration_ms: 0.205074
   type: 'test'
   ...
 # Subtest: configuration rejects RESOLVE_TIMEOUT=9
 ok 39 - configuration rejects RESOLVE_TIMEOUT=9
   ---
-  duration_ms: 0.357169
+  duration_ms: 0.268122
   type: 'test'
   ...
 # Subtest: configuration rejects PUBLIC_URL=ftp://example.com
 ok 40 - configuration rejects PUBLIC_URL=ftp://example.com
   ---
-  duration_ms: 0.376353
+  duration_ms: 0.311445
   type: 'test'
   ...
 # Subtest: configuration rejects PUBLIC_URL=https://example.com/path
 ok 41 - configuration rejects PUBLIC_URL=https://example.com/path
   ---
-  duration_ms: 0.17479
+  duration_ms: 0.153591
   type: 'test'
   ...
 # Subtest: configuration rejects PUBLIC_URL=https://user:pass@example.com
 ok 42 - configuration rejects PUBLIC_URL=https://user:pass@example.com
   ---
-  duration_ms: 0.171957
+  duration_ms: 0.172012
   type: 'test'
   ...
 # Subtest: configuration rejects PUBLIC_URL=https://example.com?secret=1
 ok 43 - configuration rejects PUBLIC_URL=https://example.com?secret=1
   ---
-  duration_ms: 0.103836
+  duration_ms: 0.104374
   type: 'test'
   ...
 # Subtest: profiles accept valid even overrides/fractional fps and bounded sync
 ok 44 - profiles accept valid even overrides/fractional fps and bounded sync
   ---
-  duration_ms: 1.28101
+  duration_ms: 1.280279
   type: 'test'
   ...
 # Subtest: URL scheme/input rejects "file:///etc/passwd"
 ok 45 - URL scheme/input rejects "file:///etc/passwd"
   ---
-  duration_ms: 0.190091
+  duration_ms: 0.147459
   type: 'test'
   ...
 # Subtest: URL scheme/input rejects "data:text/plain,test"
 ok 46 - URL scheme/input rejects "data:text/plain,test"
   ---
-  duration_ms: 0.081488
+  duration_ms: 0.075336
   type: 'test'
   ...
 # Subtest: URL scheme/input rejects "concat:http://example.com"
 ok 47 - URL scheme/input rejects "concat:http://example.com"
   ---
-  duration_ms: 0.068373
+  duration_ms: 0.067524
   type: 'test'
   ...
 # Subtest: URL scheme/input rejects "-i http://example.com"
 ok 48 - URL scheme/input rejects "-i http://example.com"
   ---
-  duration_ms: 0.087185
+  duration_ms: 0.077957
   type: 'test'
   ...
 # Subtest: URL scheme/input rejects "http://"
 ok 49 - URL scheme/input rejects "http://"
   ---
-  duration_ms: 0.079524
+  duration_ms: 0.071033
   type: 'test'
   ...
 # Subtest: URL scheme/input rejects "http://example.com:0"
 ok 50 - URL scheme/input rejects "http://example.com:0"
   ---
-  duration_ms: 0.083581
+  duration_ms: 0.11519
   type: 'test'
   ...
 # Subtest: URL scheme/input rejects "https://example.com:99999"
 ok 51 - URL scheme/input rejects "https://example.com:99999"
   ---
-  duration_ms: 0.076895
+  duration_ms: 0.077357
   type: 'test'
   ...
 # Subtest: URL scheme/input rejects "http://example.com\\n-secret"
 ok 52 - URL scheme/input rejects "http://example.com\\n-secret"
   ---
-  duration_ms: 0.074775
+  duration_ms: 0.077298
   type: 'test'
   ...
 # Subtest: URL scheme/input rejects "rtp://example.com"
 ok 53 - URL scheme/input rejects "rtp://example.com"
   ---
-  duration_ms: 0.074714
+  duration_ms: 0.074106
   type: 'test'
   ...
 # Subtest: URL scheme/input rejects "ftp://example.com"
 ok 54 - URL scheme/input rejects "ftp://example.com"
   ---
-  duration_ms: 0.145157
+  duration_ms: 0.139955
   type: 'test'
   ...
 # Subtest: URL accepts supported media https://example.com/video?q=signed
 ok 55 - URL accepts supported media https://example.com/video?q=signed
   ---
-  duration_ms: 0.117622
+  duration_ms: 0.113776
   type: 'test'
   ...
 # Subtest: URL accepts supported media http://user:pass@192.168.0.2:8080/path
 ok 56 - URL accepts supported media http://user:pass@192.168.0.2:8080/path
   ---
-  duration_ms: 0.107724
+  duration_ms: 0.075623
   type: 'test'
   ...
 # Subtest: URL accepts supported media rtsp://example.com/live
 ok 57 - URL accepts supported media rtsp://example.com/live
   ---
-  duration_ms: 0.069731
+  duration_ms: 0.068725
   type: 'test'
   ...
 # Subtest: URL accepts supported media rtmps://example.com/live
 ok 58 - URL accepts supported media rtmps://example.com/live
   ---
-  duration_ms: 0.067547
+  duration_ms: 0.127665
   type: 'test'
   ...
 # Subtest: URL accepts supported media https://[::1]:8443/file
 ok 59 - URL accepts supported media https://[::1]:8443/file
   ---
-  duration_ms: 0.070434
+  duration_ms: 0.105242
   type: 'test'
   ...
 # Subtest: HTTP-only sources reject RTSP; path checks do not confuse sibling prefixes
 ok 60 - HTTP-only sources reject RTSP; path checks do not confuse sibling prefixes
   ---
-  duration_ms: 0.245162
+  duration_ms: 0.221021
   type: 'test'
   ...
 # Subtest: prepare refuses media under disposable cache or its parent
 ok 61 - prepare refuses media under disposable cache or its parent
   ---
-  duration_ms: 74.56951
+  duration_ms: 49.075386
   type: 'test'
   ...
 # Subtest: official discord.js v14 command payloads are valid and every original command family is mapped
 ok 62 - official discord.js v14 command payloads are valid and every original command family is mapped
   ---
-  duration_ms: 9.215879
+  duration_ms: 5.649523
   type: 'test'
   ...
 # Subtest: snowflake allowlists are exact strings; invalid IDs fail closed
 ok 63 - snowflake allowlists are exact strings; invalid IDs fail closed
   ---
-  duration_ms: 2.388729
+  duration_ms: 1.642315
   type: 'test'
   ...
 # Subtest: bot instantiates without network, uses minimal official intents, and destroys without login
 ok 64 - bot instantiates without network, uses minimal official intents, and destroys without login
   ---
-  duration_ms: 71.575098
+  duration_ms: 51.541803
   type: 'test'
   ...
-# 2026-11-13T02:23:20.769Z WARN Discord play gagal: Akses ditolak. Administrator host harus menambahkan ID Anda ke allowlist yang sesuai.
+# 2026-11-13T02:35:43.881Z WARN Discord play gagal: Akses ditolak. Administrator host harus menambahkan ID Anda ke allowlist yang sesuai.
 # Subtest: permission denial never invokes playback or leaks secrets
 ok 65 - permission denial never invokes playback or leaks secrets
   ---
-  duration_ms: 7.647272
+  duration_ms: 8.031288
   type: 'test'
   ...
 # Subtest: component choice is cancellable immediately at shutdown instead of waiting for timeout
 ok 66 - component choice is cancellable immediately at shutdown instead of waiting for timeout
   ---
-  duration_ms: 0.75101
+  duration_ms: 0.722929
   type: 'test'
   ...
 # Subtest: channel/EPG matching retains original number, substring, airing and 24h horizon behavior
 ok 67 - channel/EPG matching retains original number, substring, airing and 24h horizon behavior
   ---
-  duration_ms: 0.407603
+  duration_ms: 0.403005
   type: 'test'
   ...
 # Subtest: voice resolution reads voiceStates, missing voice is clear, and stop/leave clean without private connections
 ok 68 - voice resolution reads voiceStates, missing voice is clear, and stop/leave clean without private connections
   ---
-  duration_ms: 2.750504
+  duration_ms: 2.189927
   type: 'test'
   ...
 # Subtest: EPG timer checks current voice state; cancelled schedules do not fire
 ok 69 - EPG timer checks current voice state; cancelled schedules do not fire
   ---
-  duration_ms: 28.520059
+  duration_ms: 26.873682
   type: 'test'
   ...
 # Subtest: real PCM frames encode AND decode through the installed Opus implementation; DAVE dependency loads
 ok 70 - real PCM frames encode AND decode through the installed Opus implementation; DAVE dependency loads
   ---
-  duration_ms: 47.862235
+  duration_ms: 27.687545
   type: 'test'
   ...
 # Subtest: all slash follow-ups stay ephemeral, not just the initial deferred reply
 ok 71 - all slash follow-ups stay ephemeral, not just the initial deferred reply
   ---
-  duration_ms: 0.467813
+  duration_ms: 0.344953
   type: 'test'
   ...
 # Subtest: voice /stop preempts pending resolution instead of waiting for the guild lock (unit lifecycle)
 ok 72 - voice /stop preempts pending resolution instead of waiting for the guild lock (unit lifecycle)
   ---
-  duration_ms: 53.032642
+  duration_ms: 53.128509
   type: 'test'
   ...
 # Subtest: voice /leave cancels a not-yet-created connection/session (unit lifecycle)
 ok 73 - voice /leave cancels a not-yet-created connection/session (unit lifecycle)
   ---
-  duration_ms: 53.104875
+  duration_ms: 51.701899
   type: 'test'
   ...
 # Subtest: source has a real Node ESM entrypoint, locked dependencies and no active Python code/wrapper
 ok 74 - source has a real Node ESM entrypoint, locked dependencies and no active Python code/wrapper
   ---
-  duration_ms: 12.719052
+  duration_ms: 11.862827
   type: 'test'
   ...
 # Subtest: original license hash and author attribution survive total rebranding
 ok 75 - original license hash and author attribution survive total rebranding
   ---
-  duration_ms: 4.050464
+  duration_ms: 4.407878
   type: 'test'
   ...
 # Subtest: Pterodactyl egg is Node22/direct Node, entrypoint and CI shell scripts parse
 ok 76 - Pterodactyl egg is Node22/direct Node, entrypoint and CI shell scripts parse
   ---
-  duration_ms: 21.833907
+  duration_ms: 18.878023
   type: 'test'
   ...
 # Subtest: Pterodactyl panel preset keeps allocated port and hosting secrets, uses CPU/one stream
 ok 77 - Pterodactyl panel preset keeps allocated port and hosting secrets, uses CPU/one stream
   ---
-  duration_ms: 20.969108
+  duration_ms: 17.169941
   type: 'test'
   ...
 # Subtest: dependency package metadata and required license files really exist
 ok 78 - dependency package metadata and required license files really exist
   ---
-  duration_ms: 7.618382
+  duration_ms: 5.879413
   type: 'test'
   ...
 # Subtest: source ZIP is reproducible, excludes stale Python/private files, rejects symlinks and missing assets
 ok 79 - source ZIP is reproducible, excludes stale Python/private files, rejects symlinks and missing assets
   ---
-  duration_ms: 56.695012
+  duration_ms: 42.851591
   type: 'test'
   ...
 # Subtest: binary path overrides resolve against app root, bare executable names remain PATH lookups
 ok 80 - binary path overrides resolve against app root, bare executable names remain PATH lookups
   ---
-  duration_ms: 18.145756
+  duration_ms: 16.096699
   type: 'test'
   ...
 # Subtest: Node preflight succeeds with a PATH containing NO python/pip (approved standalone utility only)
 ok 81 - Node preflight succeeds with a PATH containing NO python/pip (approved standalone utility only)
   ---
-  duration_ms: 1658.83232
+  duration_ms: 1221.493837
   type: 'test'
   ...
 # Subtest: Pterodactyl-like direct Node startup uses SERVER_PORT, accepts proxy Host, and SIGINT exits cleanly
 ok 82 - Pterodactyl-like direct Node startup uses SERVER_PORT, accepts proxy Host, and SIGINT exits cleanly
   ---
-  duration_ms: 1577.254586
+  duration_ms: 1329.346582
   type: 'test'
   ...
 # Subtest: SIGTERM during real yt-dlp metadata request reaps extractor; no Python application child exists
 ok 83 - SIGTERM during real yt-dlp metadata request reaps extractor; no Python application child exists
   ---
-  duration_ms: 1641.540449
+  duration_ms: 1473.370103
   type: 'test'
   ...
 # Subtest: TERM→KILL covers a stubborn grandchild even when its group leader exits first
 ok 84 - TERM→KILL covers a stubborn grandchild even when its group leader exits first
   ---
-  duration_ms: 149.211203
+  duration_ms: 138.433852
   type: 'test'
   ...
 # Subtest: cache cap stops active real encoding; prune/close never deletes source media
 ok 85 - cache cap stops active real encoding; prune/close never deletes source media
   ---
-  duration_ms: 2758.417749
+  duration_ms: 2669.017216
   type: 'test'
   ...
 # Subtest: startup cleanup only removes generated hex cache directories, not other data
 ok 86 - startup cleanup only removes generated hex cache directories, not other data
   ---
-  duration_ms: 4.994885
+  duration_ms: 4.700441
   type: 'test'
   ...
 # Subtest: check mode fails honestly when extractor is absent rather than reporting all providers ready
 ok 87 - check mode fails honestly when extractor is absent rather than reporting all providers ready
   ---
-  duration_ms: 414.450305
+  duration_ms: 342.880545
   type: 'test'
   ...
 # Subtest: check mode rejects missing ffmpeg before opening any port
 ok 88 - check mode rejects missing ffmpeg before opening any port
   ---
-  duration_ms: 284.55659
+  duration_ms: 261.068265
   type: 'test'
   ...
 # Subtest: real preflight encodes video/AAC, writes HLS and reads it using BOTH utilities
 ok 89 - real preflight encodes video/AAC, writes HLS and reads it using BOTH utilities
   ---
-  duration_ms: 166.142791
+  duration_ms: 151.719977
   type: 'test'
   ...
 # Subtest: preflight clearly rejects missing binaries and invalid hardware encoder
 ok 90 - preflight clearly rejects missing binaries and invalid hardware encoder
   ---
-  duration_ms: 64.251436
+  duration_ms: 51.344386
   type: 'test'
   ...
 # Subtest: real local → HLS → decoded media: video-audio.mp4
 ok 91 - real local → HLS → decoded media: video-audio.mp4
   ---
-  duration_ms: 4973.117774
+  duration_ms: 4887.065894
   type: 'test'
   ...
 # Subtest: real local → HLS → decoded media: audio-only.m4a
 ok 92 - real local → HLS → decoded media: audio-only.m4a
   ---
-  duration_ms: 4967.387347
+  duration_ms: 4940.39302
   type: 'test'
   ...
 # Subtest: real local → HLS → decoded media: video-only.mp4
 ok 93 - real local → HLS → decoded media: video-only.mp4
   ---
-  duration_ms: 4876.98843
+  duration_ms: 4800.108632
   type: 'test'
   ...
 # Subtest: real HTTP HLS input fetches playlist AND .ts, then generates playable HLS again
 ok 94 - real HTTP HLS input fetches playlist AND .ts, then generates playable HLS again
   ---
-  duration_ms: 5000.06608
+  duration_ms: 4881.075122
   type: 'test'
   ...
 # Subtest: IPTV channel uses stored URL for actual video, not a synthetic placeholder
 ok 95 - IPTV channel uses stored URL for actual video, not a synthetic placeholder
   ---
-  duration_ms: 4862.851079
+  duration_ms: 4877.646082
   type: 'test'
   ...
-# 2026-11-13T02:23:54.966Z WARN Sesi 8a8dd47f30cf44eeadfd670f8afe2dc7 gagal: Metadata media tidak dapat dibaca. Periksa koneksi dan format sumber.
-# 2026-11-13T02:23:54.981Z WARN Sesi 9c713cd3842142f99eb6731e3dd91ef3 gagal: Metadata media tidak dapat dibaca. Periksa koneksi dan format sumber.
+# 2026-11-13T02:36:16.579Z WARN Sesi 4d0346a3056f4420a4eb09a7b1180631 gagal: Metadata media tidak dapat dibaca. Periksa koneksi dan format sumber.
+# 2026-11-13T02:36:16.592Z WARN Sesi dae1c1737fca4c489a903e12f426c857 gagal: Metadata media tidak dapat dibaca. Periksa koneksi dan format sumber.
 # Subtest: actual 404 and invalid media become safe errors, not success, and do not kill manager
 ok 96 - actual 404 and invalid media become safe errors, not success, and do not kill manager
   ---
-  duration_ms: 38.030495
+  duration_ms: 31.491663
   type: 'test'
   ...
 # Subtest: stopping during slow HTTP probe cancels its actual process; close is idempotent
 ok 97 - stopping during slow HTTP probe cancels its actual process; close is idempotent
   ---
-  duration_ms: 7.52709
+  duration_ms: 7.06213
   type: 'test'
   ...
 # Subtest: concurrent sessions enforce slot cap and stop reaps active FFmpeg
 ok 98 - concurrent sessions enforce slot cap and stop reaps active FFmpeg
   ---
-  duration_ms: 2828.360177
+  duration_ms: 2622.667691
   type: 'test'
   ...
 # Subtest: idle expiry removes only generated cache; local path confinement rejects escaping symlinks
 ok 99 - idle expiry removes only generated cache; local path confinement rejects escaping symlinks
   ---
-  duration_ms: 633.560804
+  duration_ms: 619.895236
   type: 'test'
   ...
 # Subtest: scheduled real media starts; invalid horizons and cancellation are explicit
 ok 100 - scheduled real media starts; invalid horizons and cancellation are explicit
   ---
-  duration_ms: 750.823308
+  duration_ms: 718.086278
   type: 'test'
   ...
 # Subtest: command generation respects quality, threads, A/V offset and selected encoder
 ok 101 - command generation respects quality, threads, A/V offset and selected encoder
   ---
-  duration_ms: 5.482836
+  duration_ms: 4.184288
   type: 'test'
   ...
 # Subtest: bounded subprocess output, timeout and explicit abort kill actual Node children
 ok 102 - bounded subprocess output, timeout and explicit abort kill actual Node children
   ---
-  duration_ms: 77.298666
+  duration_ms: 71.920634
   type: 'test'
   ...
 # Subtest: extractor refuses Python shebang/zipapps; live selection requires combined A/V
 ok 103 - extractor refuses Python shebang/zipapps; live selection requires combined A/V
   ---
-  duration_ms: 4.967872
+  duration_ms: 4.434359
   type: 'test'
   ...
 # Subtest: real standalone yt-dlp downloads controlled HTML5 video and hands it to real FFmpeg
 ok 104 - real standalone yt-dlp downloads controlled HTML5 video and hands it to real FFmpeg
   ---
-  duration_ms: 7368.151512
+  duration_ms: 6287.309441
   type: 'test'
   ...
 # Subtest: real extractor failures/timeouts surface safe errors and leave no children
 ok 105 - real extractor failures/timeouts surface safe errors and leave no children
   ---
-  duration_ms: 1804.382898
+  duration_ms: 1475.61319
   type: 'test'
   ...
 # Subtest: controlled Jellyfin/TVheadend API paths deliver actual A/V through FFmpeg
 ok 106 - controlled Jellyfin/TVheadend API paths deliver actual A/V through FFmpeg
   ---
-  duration_ms: 5505.618642
+  duration_ms: 5461.390441
   type: 'test'
   ...
 # Subtest: M3U parser handles BOM, commas in quoted attributes, fallback names and EPG
 ok 107 - M3U parser handles BOM, commas in quoted attributes, fallback names and EPG
   ---
-  duration_ms: 2.799155
+  duration_ms: 2.464546
   type: 'test'
   ...
 # Subtest: M3U HTTP resolves relative URLs and backfills old EPG header (bounded prefix)
 ok 108 - M3U HTTP resolves relative URLs and backfills old EPG header (bounded prefix)
   ---
-  duration_ms: 37.488455
+  duration_ms: 43.438198
   type: 'test'
   ...
 # Subtest: HTTP bounds responses, timeouts, abort, invalid JSON; auth survives only same-origin redirects
 ok 109 - HTTP bounds responses, timeouts, abort, invalid JSON; auth survives only same-origin redirects
   ---
-  duration_ms: 54.821215
+  duration_ms: 47.979237
   type: 'test'
   ...
 # Subtest: XMLTV timezone 20260519120000 +0000
 ok 110 - XMLTV timezone 20260519120000 +0000
   ---
-  duration_ms: 0.505477
+  duration_ms: 0.51587
   type: 'test'
   ...
 # Subtest: XMLTV timezone 20260519190000 +0700
 ok 111 - XMLTV timezone 20260519190000 +0700
   ---
-  duration_ms: 0.167106
+  duration_ms: 0.15359
   type: 'test'
   ...
 # Subtest: XMLTV timezone 20260519070000 -0500
 ok 112 - XMLTV timezone 20260519070000 -0500
   ---
-  duration_ms: 0.081206
+  duration_ms: 0.113823
   type: 'test'
   ...
 # Subtest: XMLTV timezone 20260519120000
 ok 113 - XMLTV timezone 20260519120000
   ---
-  duration_ms: 0.072494
+  duration_ms: 0.083178
   type: 'test'
   ...
 # Subtest: XMLTV rejects invalid timestamp
 ok 114 - XMLTV rejects invalid timestamp
   ---
-  duration_ms: 0.136003
+  duration_ms: 0.121267
   type: 'test'
   ...
 # Subtest: XMLTV rejects invalid timestamp 20260230120000
 ok 115 - XMLTV rejects invalid timestamp 20260230120000
   ---
-  duration_ms: 0.085719
+  duration_ms: 0.078996
   type: 'test'
   ...
 # Subtest: XMLTV rejects invalid timestamp 20261319120000
 ok 116 - XMLTV rejects invalid timestamp 20261319120000
   ---
-  duration_ms: 0.077118
+  duration_ms: 0.08325
   type: 'test'
   ...
 # Subtest: XMLTV rejects invalid timestamp 20260519126000
 ok 117 - XMLTV rejects invalid timestamp 20260519126000
   ---
-  duration_ms: 0.11316
+  duration_ms: 0.072926
   type: 'test'
   ...
 # Subtest: XMLTV rejects invalid timestamp 20260519120000 +2460
 ok 118 - XMLTV rejects invalid timestamp 20260519120000 +2460
   ---
-  duration_ms: 0.078273
+  duration_ms: 0.071171
   type: 'test'
   ...
 # Subtest: XMLTV streaming parser handles now-playing, entities/gzip and discards old/bad programme
 ok 119 - XMLTV streaming parser handles now-playing, entities/gzip and discards old/bad programme
   ---
-  duration_ms: 15.011664
+  duration_ms: 13.210503
   type: 'test'
   ...
 # Subtest: HLS master selection preserves signed variant query and tolerates non-HLS/failed URL
 ok 120 - HLS master selection preserves signed variant query and tolerates non-HLS/failed URL
   ---
-  duration_ms: 5.976554
+  duration_ms: 5.745722
   type: 'test'
   ...
 # Subtest: Jellyfin search/episode traversal, authorized PlaybackInfo and subtitle suppression
 ok 121 - Jellyfin search/episode traversal, authorized PlaybackInfo and subtitle suppression
   ---
-  duration_ms: 10.880292
+  duration_ms: 12.549887
   type: 'test'
   ...
 # Subtest: TVheadend Basic auth, enabled sorting, EPG client filter and cache, IPv6 URL encoding
 ok 122 - TVheadend Basic auth, enabled sorting, EPG client filter and cache, IPv6 URL encoding
   ---
-  duration_ms: 6.850662
+  duration_ms: 7.123108
   type: 'test'
   ...
 # Subtest: catalog retains channel hash and hides all provider credentials from public listings
 ok 123 - catalog retains channel hash and hides all provider credentials from public listings
   ---
-  duration_ms: 26.614676
+  duration_ms: 33.116743
   type: 'test'
   ...
 # Subtest: missing providers are explicit and malformed persisted JSON does not get overwritten
 ok 124 - missing providers are explicit and malformed persisted JSON does not get overwritten
   ---
-  duration_ms: 3.892138
+  duration_ms: 4.052348
   type: 'test'
   ...
 # Subtest: relative M3U and XMLTV URLs retain private Basic credentials without crossing redirect origins
 ok 125 - relative M3U and XMLTV URLs retain private Basic credentials without crossing redirect origins
   ---
-  duration_ms: 7.883929
+  duration_ms: 5.997284
   type: 'test'
   ...
-# 2026-11-13T02:24:14.650Z WARN APP_PASSWORD belum diset. Password awal ada di DATA_DIR/initial-password; hanya administrator host boleh membacanya.
-# 2026-11-13T02:24:14.752Z WARN APP_PASSWORD belum diset. Password awal ada di DATA_DIR/initial-password; hanya administrator host boleh membacanya.
+# 2026-11-13T02:36:34.456Z WARN APP_PASSWORD belum diset. Password awal ada di DATA_DIR/initial-password; hanya administrator host boleh membacanya.
+# 2026-11-13T02:36:34.538Z WARN APP_PASSWORD belum diset. Password awal ada di DATA_DIR/initial-password; hanya administrator host boleh membacanya.
 # Subtest: bootstrap password stays private and stable across restarts
 ok 126 - bootstrap password stays private and stable across restarts
   ---
-  duration_ms: 205.53346
+  duration_ms: 170.295825
   type: 'test'
   ...
 # Subtest: wrong passwords are limited; sessions expire and token map is bounded
 ok 127 - wrong passwords are limited; sessions expire and token map is bounded
   ---
-  duration_ms: 383.853679
+  duration_ms: 320.030026
   type: 'test'
   ...
 # Subtest: origin matches exact request host/port, including preview and IPv6
 ok 128 - origin matches exact request host/port, including preview and IPv6
   ---
-  duration_ms: 1.421968
+  duration_ms: 0.707493
   type: 'test'
   ...
 # Subtest: cookie parser tolerates malformed input without authenticating it
 ok 129 - cookie parser tolerates malformed input without authenticating it
   ---
-  duration_ms: 1.218511
+  duration_ms: 0.784169
   type: 'test'
   ...
 # Subtest: redaction removes provider URL paths/query/userinfo and configured secrets
 ok 130 - redaction removes provider URL paths/query/userinfo and configured secrets
   ---
-  duration_ms: 0.202832
+  duration_ms: 0.198329
   type: 'test'
   ...
 # Subtest: real Node HTTP API / authenticated media / WS / upload contracts
     # Subtest: health, public info and authenticated runtime identify Node, not Python
     ok 1 - health, public info and authenticated runtime identify Node, not Python
       ---
-      duration_ms: 17.039951
+      duration_ms: 13.564572
       type: 'test'
       ...
     # Subtest: API requires auth, rejects cross-origin writes/invalid JSON and does not leak credentials
     ok 2 - API requires auth, rejects cross-origin writes/invalid JSON and does not leak credentials
       ---
-      duration_ms: 31.037052
+      duration_ms: 30.632107
       type: 'test'
       ...
     # Subtest: playlist CRUD validates descriptors, persists and refuses missing playlists
     ok 3 - playlist CRUD validates descriptors, persists and refuses missing playlists
       ---
-      duration_ms: 31.724419
+      duration_ms: 26.986526
       type: 'test'
       ...
     # Subtest: actual multipart upload is private, appears in library, and concurrent names never clobber
     ok 4 - actual multipart upload is private, appears in library, and concurrent names never clobber
       ---
-      duration_ms: 40.187698
+      duration_ms: 27.755606
       type: 'test'
       ...
     # Subtest: unsupported, empty, multiple and oversized uploads fail and remove temporary files
     ok 5 - unsupported, empty, multiple and oversized uploads fail and remove temporary files
       ---
-      duration_ms: 33.721616
+      duration_ms: 43.849601
       type: 'test'
       ...
     # Subtest: sources use real M3U HTTP parsing, toggle/delete persist and public results hide upstream URLs
     ok 6 - sources use real M3U HTTP parsing, toggle/delete persist and public results hide upstream URLs
       ---
-      duration_ms: 44.93114
+      duration_ms: 32.183058
       type: 'test'
       ...
     # Subtest: real session produces protected manifest/segments; invalid paths cannot read filesystem
     ok 7 - real session produces protected manifest/segments; invalid paths cannot read filesystem
       ---
-      duration_ms: 1832.19124
+      duration_ms: 1829.067479
       type: 'test'
       ...
     # Subtest: authenticated WS broadcasts validated pause/seek, closes on session stop; anonymous/origin rejected
     ok 8 - authenticated WS broadcasts validated pause/seek, closes on session stop; anonymous/origin rejected
       ---
-      duration_ms: 255.309368
+      duration_ms: 241.372546
       type: 'test'
       ...
     # Subtest: schedules/API provider absence, logout and static branding are explicit
     ok 9 - schedules/API provider absence, logout and static branding are explicit
       ---
-      duration_ms: 32.291449
+      duration_ms: 27.547257
       type: 'test'
       ...
     1..9
 ok 131 - real Node HTTP API / authenticated media / WS / upload contracts
   ---
-  duration_ms: 4462.699981
+  duration_ms: 3842.986518
   type: 'test'
   ...
 # Subtest: atomic private JSON refuses overwrite when requested (including dangling symlink)
 ok 132 - atomic private JSON refuses overwrite when requested (including dangling symlink)
   ---
-  duration_ms: 21.259611
+  duration_ms: 18.31108
   type: 'test'
   ...
 # Subtest: legacy source list migrates in place without losing enable state, EPG or channel IDs
 ok 133 - legacy source list migrates in place without losing enable state, EPG or channel IDs
   ---
-  duration_ms: 20.043509
+  duration_ms: 13.531447
   type: 'test'
   ...
 # Subtest: concurrent source/playlist writes serialize and failed edits roll back memory
 ok 134 - concurrent source/playlist writes serialize and failed edits roll back memory
   ---
-  duration_ms: 51.411609
+  duration_ms: 51.697523
   type: 'test'
   ...
 # Subtest: source schema rejects null
 ok 135 - source schema rejects null
   ---
-  duration_ms: 0.379539
+  duration_ms: 0.296537
   type: 'test'
   ...
 # Subtest: source schema rejects {}
 ok 136 - source schema rejects {}
   ---
-  duration_ms: 0.155285
+  duration_ms: 0.115103
   type: 'test'
   ...
 # Subtest: source schema rejects {"sources":[],"tvh_enabled":1}
 ok 137 - source schema rejects {"sources":[],"tvh_enabled":1}
   ---
-  duration_ms: 0.106642
+  duration_ms: 0.084175
   type: 'test'
   ...
 # Subtest: source schema rejects [null]
 ok 138 - source schema rejects [null]
   ---
-  duration_ms: 0.107788
+  duration_ms: 0.0647
   type: 'test'
   ...
 # Subtest: source schema rejects [{"name":"bad"}]
 ok 139 - source schema rejects [{"name":"bad"}]
   ---
-  duration_ms: 0.100457
+  duration_ms: 0.06285
   type: 'test'
   ...
 # Subtest: source schema rejects [{"name":"bad","url":"x","enabled":"true"}]
 ok 140 - source schema rejects [{"name":"bad","url":"x","enabled":"true"}]
   ---
-  duration_ms: 0.099511
+  duration_ms: 0.063503
   type: 'test'
   ...
 # Subtest: source schema rejects [{"name":"bad","url":"x","channels":[null]}]
 ok 141 - source schema rejects [{"name":"bad","url":"x","channels":[null]}]
   ---
-  duration_ms: 0.075518
+  duration_ms: 0.061181
   type: 'test'
   ...
 # Subtest: playlist schema rejects null
 ok 142 - playlist schema rejects null
   ---
-  duration_ms: 0.113341
+  duration_ms: 0.161991
   type: 'test'
   ...
 # Subtest: playlist schema rejects {}
 ok 143 - playlist schema rejects {}
   ---
-  duration_ms: 0.06081
+  duration_ms: 0.066949
   type: 'test'
   ...
 # Subtest: playlist schema rejects [null]
 ok 144 - playlist schema rejects [null]
   ---
-  duration_ms: 0.098693
+  duration_ms: 0.060442
   type: 'test'
   ...
 # Subtest: playlist schema rejects [{"id":"a","name":"List","items":[{"kind":"file","path":"x"}]}]
 ok 145 - playlist schema rejects [{"id":"a","name":"List","items":[{"kind":"file","path":"x"}]}]
   ---
-  duration_ms: 0.108424
+  duration_ms: 0.073156
   type: 'test'
   ...
 # Subtest: playlist schema rejects [{"id":"a","name":"List","items":[{"kind":"url"}]}]
 ok 146 - playlist schema rejects [{"id":"a","name":"List","items":[{"kind":"url"}]}]
   ---
-  duration_ms: 0.087209
+  duration_ms: 0.078162
   type: 'test'
   ...
 # Subtest: playlist schema rejects [{"id":"a","name":"List","items":[]},{"id":"a","name":"Duplicate","items":[]}]
 ok 147 - playlist schema rejects [{"id":"a","name":"List","items":[]},{"id":"a","name":"Duplicate","items":[]}]
   ---
-  duration_ms: 0.064449
+  duration_ms: 0.059604
   type: 'test'
   ...
 # Subtest: corrupt stores fail closed, never replace original data with an empty store
 ok 148 - corrupt stores fail closed, never replace original data with an empty store
   ---
-  duration_ms: 11.018469
+  duration_ms: 16.895201
   type: 'test'
   ...
 # Subtest: data migration validates ALL inputs before copying, preserves originals, no-clobber
 ok 149 - data migration validates ALL inputs before copying, preserves originals, no-clobber
   ---
-  duration_ms: 11.288192
+  duration_ms: 7.229088
   type: 'test'
   ...
 1..149
@@ -961,7 +961,7 @@ ok 149 - data migration validates ALL inputs before copying, preserves originals
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 60354.896276
+# duration_ms 56155.723299
 # start of coverage report
 # ---------------------------------------------------------------------------------------------
 # file              | line % | branch % | funcs % | uncovered lines
